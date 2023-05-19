@@ -124,46 +124,25 @@ public class Facturacion extends JFrame {
 	}
 
 	public void comboBox() {
-
+ 
 		comboBoxPlatos = new JComboBox<Producto>();
 		comboBoxPlatos.setBounds(82, 11, 206, 22);
 		contentPane.add(comboBoxPlatos);
-		todosLosPlatos();
+		dispositivo.platos().forEach(plato -> comboBoxPlatos.addItem(plato));
 
 		comboBoxBebidas = new JComboBox<Producto>();
 		comboBoxBebidas.setBounds(82, 44, 206, 22);
 		contentPane.add(comboBoxBebidas);
-		todasLasBebidas();
+		dispositivo.bebidas().forEach(bebiba -> comboBoxBebidas.addItem(bebiba));
 
 		comboBoxTarjetas = new JComboBox<ITarjeta>();
 		comboBoxTarjetas.setBounds(203, 138, 145, 22);
-		contentPane.add(comboBoxTarjetas);
-		todasLasTarjetas();
+		contentPane.add(comboBoxTarjetas); 
+		tarjetas.forEach(tarjeta -> comboBoxTarjetas.addItem(tarjeta));
 
 	}
 
-	private void todosLosPlatos() {
-		for (Producto plato : dispositivo.platos()) {
-			comboBoxPlatos.addItem(plato);
-
-		}
-
-	}
-
-	private void todasLasBebidas() {
-		for (Producto bebida : dispositivo.bebidas()) {
-			comboBoxBebidas.addItem(bebida);
-
-		}
-
-	}
-
-	private void todasLasTarjetas() {
-		for (ITarjeta tarjeta : tarjetas) {
-			comboBoxTarjetas.addItem(tarjeta);
-
-		}
-
-	}
+	 
+	
 
 }
